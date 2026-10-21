@@ -32,7 +32,7 @@ function spawnPopup() {
     popup.innerHTML = `
         <div class="popup-title">
             <span>ALERT.exe</span>
-            <button onclick="this.parentElement.parentElement.remove()" style="background:#c0c0c0; border:1px solid; border-color:#fff #808 #808 #fff; cursor:pointer; font-family:'VT323';">X</button>
+            <button onclick="handleXClick(this)" style="background:#c0c0c0; border:1px solid; border-color:#fff #808 #808 #fff; cursor:pointer; font-family:'VT323';">X</button>
         </div>
         <div class="popup-content">
             <p>${randomMsg}</p>
@@ -150,4 +150,12 @@ function goBack() {
     document.getElementById('screen-2').classList.add('hidden');
     document.getElementById('screen-3').classList.add('hidden');
     document.getElementById('screen-1').classList.remove('hidden');
+}
+function handleXClick(buttonElement) {
+    const popup = buttonElement.parentElement.parentElement;
+    popup.remove();
+    
+    // Spawns two new ones when X is clicked!
+    spawnPopup();
+    spawnPopup();
 }

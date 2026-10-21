@@ -215,7 +215,8 @@ body.dance-party .container {
     display: none !important;
 }
 
-body.dance-party .party-trigger-btn {
+body.dance-party .party-trigger-btn, 
+body.angry-background .party-trigger-btn{
     display: none !important;
 }
 

@@ -24,7 +24,7 @@
             <div id="screen-1">
                 <h1>PLS ACCEPT THE GIFT</h1>
                 <!-- Cute cat GIF -->
-                <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="Cute Pleading Cat">
+                <img src="https://i.pinimg.com/originals/39/6a/d7/396ad7bc9ed47be40f6649815c487d6c.gif" alt="Cute Pleading Cat">
                 
                 <div class="btn-container">
                     <button onclick="acceptGift()">YES</button>
@@ -34,8 +34,8 @@
 
             <!-- SCREEN 2: If he clicks NO (90s Error / Angry Cat) -->
             <div id="screen-2" class="hidden">
-                <h1>ERROR 404: HOW DARE YOU! 🔫</h1>
-                <img src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif" alt="Angry Cat">
+                <h1>ERROR 404: F U</h1>
+                <img src="https://i.pinimg.com/736x/e5/6b/e5/e56be54df45ff4eb6337e04f03f8ef18.jpg" alt="Angry Cat">
                 <div class="btn-container">
                     <button onclick="resetPage()">TRY AGAIN</button>
                 </div>
@@ -75,6 +75,17 @@
                 <p class="letter-text">How patient and supportive you are with me. You're literally my favorite person.</p>
                 <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
             </div>
+        </div>
+    </div>
+
+    <!-- FREESTANDING CLICK ME BUTTON -->
+    <button class="party-trigger-btn" onclick="triggerDanceParty()">🎉 CLICK ME 🎉</button>
+
+    <!-- FULLSCREEN JUMPSCARE PARTY SCREEN -->
+    <div id="screen-party" class="fullscreen-party-overlay">
+        <img class="jumpscare-img" src="https://i.pinimg.com/736x/6e/1f/d9/6e1fd938bb4d8ef18fc13cc5abbdf6f0.jpg" alt="Party Jumpscare">
+        <div style="margin-top: 25px;">
+            <button onclick="closeParty()">[ RETURN TO BEGINNING ]</button>
         </div>
     </div>
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY_BIRTHDAY.exe 🥺💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- 90s Window Title Bar -->
+        <div class="title-bar">
+            <span>SURPRISE.EXE</span>
+            <div class="window-buttons">
+                <span class="win-btn">_</span>
+                <span class="win-btn">□</span>
+                <span class="win-btn">X</span>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <!-- SCREEN 1: The Initial Question -->
+            <div id="screen-1">
+                <h1>PLS ACCEPT THE GIFT</h1>
+                <!-- Cute cat GIF -->
+                <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="Cute Pleading Cat">
+                
+                <div class="btn-container">
+                    <button onclick="acceptGift()">YES</button>
+                    <button onclick="rejectGift()">NO</button>
+                </div>
+            </div>
+
+            <!-- SCREEN 2: If he clicks NO (90s Error / Angry Cat) -->
+            <div id="screen-2" class="hidden">
+                <h1>ERROR 404: HOW DARE YOU! 🔫</h1>
+                <img src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif" alt="Angry Cat">
+                <div class="btn-container">
+                    <button onclick="resetPage()">TRY AGAIN</button>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: If he clicks YES (The Letter Menu) -->
+            <div id="screen-3" class="hidden">
+                <h1>DIRECTORY: MESSAGES</h1>
+                <p>Select a file to open:</p>
+                
+                <div class="gift-btns">
+                    <button onclick="openLetter('letter-hb')">[ 💌 Happy Birthday ]</button>
+                    <button onclick="openLetter('letter-1')">[ 💌 Why I Love You #1 ]</button>
+                    <button onclick="openLetter('letter-2')">[ 💌 Why I Love You #2 ]</button>
+                </div>
+                
+                <div>
+                    <button class="back-btn" onclick="goBack()">[ &lt;- BACK ]</button>
+                </div>
+            </div>
+
+            <!-- INDIVIDUAL LETTER SCREENS -->
+            <div id="letter-hb" class="hidden">
+                <h1>FILE: HBD.txt</h1>
+                <p class="letter-text">I wish I could be there to celebrate with you in person today, but I hope this little site makes you smile. I love you so much! 💖</p>
+                <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
+            </div>
+
+            <div id="letter-1" class="hidden">
+                <h1>FILE: REASON_1.txt</h1>
+                <p class="letter-text">The way you always know how to make me laugh, even when we are miles apart through a screen.</p>
+                <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
+            </div>
+
+            <div id="letter-2" class="hidden">
+                <h1>FILE: REASON_2.txt</h1>
+                <p class="letter-text">How patient and supportive you are with me. You're literally my favorite person.</p>
+                <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

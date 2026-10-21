@@ -17,12 +17,12 @@ body {
 
 body.angry-background {
     background: #800000;
-    animation: glitchScreen 0.2s infinite alternate;
+    animation: glitchScreen 0.1s infinite alternate;
 }
 
 @keyframes glitchScreen {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(20deg); }
+    50% { filter: hue-rotate(100deg); }
+    50% { filter: hue-rotate(100deg); }
 }
 
 h1 {
@@ -228,3 +228,4 @@ body.dance-party .party-trigger-btn {
     margin-bottom: 25px !important;
     background: transparent !important;
 }
+

@@ -258,3 +258,25 @@ body.show-party-btn .party-trigger-btn {
 .spawned-popup p {
     color: #00ff66 !important;
 }
+
+/* Position the window box to hold Goku in place */
+.fullscreen-party-overlay, #screen-3, #letter-hb {
+    position: relative;
+}
+
+/* Goku GIF styling */
+.side-gif {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* Locks Goku right outside the left wall of your main box */
+.left-gif {
+    right: 99%; 
+    max-height: fit-content;
+    top: 40%;
+}

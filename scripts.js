@@ -78,7 +78,7 @@ function rejectGift() {
         } else {
             clearInterval(window.popupInterval);
         }
-    }, 350); // Spawns one every 0.6 seconds until it hits maxSpawns
+    }, 400); // Spawns one every 0.6 seconds until it hits maxSpawns
 }
 
 function resetPage() {

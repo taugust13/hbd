@@ -11,7 +11,7 @@
     <div class="container">
         <!-- 90s Window Title Bar -->
         <div class="title-bar">
-            <span>SURPRISE.EXE</span>
+            <span>SURPRISE_BABY.exe</span>
             <div class="window-buttons">
                 <span class="win-btn">_</span>
                 <span class="win-btn">□</span>
@@ -24,7 +24,7 @@
             <div id="screen-1">
                 <h1>PLS ACCEPT THE GIFT</h1>
                 <!-- Cute cat GIF -->
-                <img src="https://i.pinimg.com/originals/39/6a/d7/396ad7bc9ed47be40f6649815c487d6c.gif" alt="Cute Pleading Cat">
+                <img src="https://i.pinimg.com/736x/2b/00/96/2b00961136373c04026a39e0fd27cdfb.jpg">
                 
                 <div class="btn-container">
                     <button onclick="acceptGift()">YES</button>
@@ -48,8 +48,8 @@
                 
                 <div class="gift-btns">
                     <button onclick="openLetter('letter-hb')">[ 💌 Happy Birthday ]</button>
-                    <button onclick="openLetter('letter-1')">[ 💌 Why I Love You #1 ]</button>
-                    <button onclick="openLetter('letter-2')">[ 💌 Why I Love You #2 ]</button>
+                    <button onclick="openLetter('letter-1')">[ 💌 Letter #1 ]</button>
+                    <button onclick="openLetter('letter-2')">[ 💌 Letter #2 ]</button>
                 </div>
                 
                 <div>
@@ -65,30 +65,38 @@
             </div>
 
             <div id="letter-1" class="hidden">
-                <h1>FILE: REASON_1.txt</h1>
+                <h1>FILE: LOVE_LETTER_1.txt</h1>
                 <p class="letter-text">The way you always know how to make me laugh, even when we are miles apart through a screen.</p>
                 <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
             </div>
 
             <div id="letter-2" class="hidden">
-                <h1>FILE: REASON_2.txt</h1>
-                <p class="letter-text">How patient and supportive you are with me. You're literally my favorite person.</p>
+                <h1>FILE: LOVE_LETTER_2.txt</h1>
+                <p class="letter-text">BABY,</p>
                 <button class="back-btn" onclick="backToLetters()">[ &lt;- BACK ]</button>
             </div>
         </div>
     </div>
 
     <!-- FREESTANDING CLICK ME BUTTON -->
-    <button class="party-trigger-btn" onclick="triggerDanceParty()">🎉 CLICK ME 🎉</button>
+    <button class="party-trigger-btn" onclick="triggerDanceParty()">🎉</button>
 
     <!-- FULLSCREEN JUMPSCARE PARTY SCREEN -->
     <div id="screen-party" class="fullscreen-party-overlay">
-        <img class="jumpscare-img" src="https://i.pinimg.com/736x/6e/1f/d9/6e1fd938bb4d8ef18fc13cc5abbdf6f0.jpg" alt="Party Jumpscare">
+        <div class="jumpscare-images-container">
+            <!-- Hamster first -->
+             <img class="jumpscare-img" src="https://i.pinimg.com/originals/27/f9/a3/27f9a37eb3dc9b7b7e8e648bb987816b.gif">
+            <img class="jumpscare-img" src="https://i.pinimg.com/originals/4d/5c/66/4d5c667ef575a390211f2ab1a958cb46.gif" alt="birthday hamster">
+            
+            <!-- Sonic second -->
+            <img class="jumpscare-img" src="https://i.pinimg.com/originals/2c/46/92/2c4692be7d502a9250bec5c6f09128b8.gif">
+            <img class="jumpscare-img" src="https://i.pinimg.com/originals/39/6a/d7/396ad7bc9ed47be40f6649815c487d6c.gif" alt="dancing sonic gif">
+            <img class="jumpscare-img" src="https://i.pinimg.com/originals/f1/64/82/f16482602095207306a4738c8c6da322.gif">
+        </div>
         <div style="margin-top: 25px;">
-            <button onclick="closeParty()">[ RETURN TO BEGINNING ]</button>
+            <button onclick="closeParty()">[ LEAVE DANCE PARTY ]</button>
         </div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>

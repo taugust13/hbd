@@ -198,7 +198,7 @@ body.dance-party {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background: transparent !important;
+    background: #FCFEFC !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
@@ -230,3 +230,31 @@ body.angry-background .party-trigger-btn{
     background: transparent !important;
 }
 
+/* Container to hold the two jumpscare images side-by-side */
+.jumpscare-images-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between the two images */
+    flex-wrap: wrap; /* Automatically wraps on very small screens */
+}
+
+/* Adjust individual image sizing slightly so they fit side-by-side nicely */
+.fullscreen-party-overlay .jumpscare-img {
+    width: 350px !important;
+    max-width: 42vw !important;
+    margin-bottom: 0 !important; /* Removes the old bottom margin */
+}
+
+.party-trigger-btn {
+    display: none !important;
+}
+
+body.show-party-btn .party-trigger-btn {
+    display: block !important;
+}
+
+.spawned-popup p {
+    color: #00ff66 !important;
+}

@@ -6,12 +6,12 @@ partyAudio.loop = true;
 
 // Spam pop-up variables and spawner
 const popUpMessages = [
-    "⚠️ WARNING: VIRUS DETECTED!",
-    "🎉 DUNG DUNG U SMELL LIKE DUNG DUNG!",
-    "🚨 ERROR 404: YOUR FAULT FOR CHOSSING NO",
-    "💥 WRONG BUTTON! SHOULDVE CLICKED YES INSTEAD!",
-    "🪲 FREE KIYAWARE INSTALLED!",
-    "🛑 HEHEHEHE!"
+    "⚠️ WARNING: YOU'RE GETTING SLAPPED",
+    "🎉  U SMELL",
+    "🚨 ERROR 404: THIS IS WHAT U GET FOR CHOOSING NO",
+    "💥 WRONG ANSWER!!! SHOULD'VE CLICKED YES",
+    "🪲 FREE KIYAWARE INSTALLED",
+    "🛑 HEHEHEHEHEHE"
 ];
 
 let activePopups = [];
@@ -36,7 +36,7 @@ function spawnPopup() {
         </div>
         <div class="popup-content">
             <p>${randomMsg}</p>
-            <button onclick="this.parentElement.parentElement.remove()" style="margin-top:5px; padding:2px 10px; font-family:'VT323'; font-size:1rem; background:#00ffff; border:2px solid; border-color:#fff #008 #008 #fff; cursor:pointer;">OK</button>
+            <button onclick="this.parentElement.parentElement.remove()" style="margin-top:5px; padding:2px 10px; font-family:'VT323'; font-size:1rem; background:#00ffff; border:2px solid; border-color:#fff #008 #008 #fff; cursor:pointer;">SORRY BABY</button>
         </div>
     `;
 
@@ -49,6 +49,7 @@ function acceptGift() {
     yesAudio.currentTime = 0;
     yesAudio.play().catch(error => console.log("Audio play blocked or file missing:", error));
 
+    document.body.classList.add('show-party-btn');
     document.body.classList.remove('dance-party', 'angry-background');
     document.getElementById('screen-1').classList.add('hidden');
     document.getElementById('screen-3').classList.remove('hidden');
@@ -68,7 +69,7 @@ function rejectGift() {
     if (window.popupInterval) clearInterval(window.popupInterval);
     
     let spawnCount = 0;
-    const maxSpawns = 13; // Change this number if you want more or fewer pop-ups!
+    const maxSpawns = 27; // Change this number if you want more or fewer pop-ups!
     
     window.popupInterval = setInterval(() => {
         if (spawnCount < maxSpawns && document.body.classList.contains('angry-background')) {
@@ -77,7 +78,7 @@ function rejectGift() {
         } else {
             clearInterval(window.popupInterval);
         }
-    }, 600); // Spawns one every 0.6 seconds until it hits maxSpawns
+    }, 350); // Spawns one every 0.6 seconds until it hits maxSpawns
 }
 
 function resetPage() {
@@ -112,13 +113,14 @@ function closeParty() {
     stopPartyMusic();
     document.body.classList.remove('dance-party');
 
-    // Reset back to screen 1 (Beginning)
+    // hide everything else
+    document.getElementById('screen-1').classList.add('hidden');
     document.getElementById('screen-2').classList.add('hidden');
-    document.getElementById('screen-3').classList.add('hidden');
+    // hides all individual letters just in case
     const letters = document.querySelectorAll('[id^="letter-"]');
     letters.forEach(el => el.classList.add('hidden'));
-    
-    document.getElementById('screen-1').classList.remove('hidden');
+    // shows the messages directory screen 3
+    document.getElementById('screen-3').classList.remove('hidden');
 }
 
 function stopPartyMusic() {
@@ -141,6 +143,8 @@ function backToLetters() {
 function goBack() {
     stopPartyMusic();
     document.body.classList.remove('dance-party', 'angry-background');
+    
+    document.body.classList.remove('dance-party', 'angry-background', 'show-party-btn');
     
     // Clear pop-ups
     clearInterval(window.popupInterval);

@@ -13,6 +13,12 @@ const popUpMessages = [
     "🪲 FREE KIYAWARE INSTALLED",
     "🛑 HEHEHEHEHEHE"
 ];
+// Function to trigger a light phone vibration (if the device supports it)
+function vibratePhone(duration = 40) {
+    if ("vibrate" in navigator) {
+        navigator.vibrate(duration);
+    }
+}
 
 let activePopups = [];
 
@@ -45,6 +51,7 @@ function spawnPopup() {
 }
 
 function acceptGift() {
+    // Little buzz on accept
     stopPartyMusic();
     yesAudio.currentTime = 0;
     yesAudio.play().catch(error => console.log("Audio play blocked or file missing:", error));
@@ -56,6 +63,7 @@ function acceptGift() {
 }
 
 function rejectGift() {
+    vibratePhone(50); 
     stopPartyMusic();
     noAudio.currentTime = 0;
     noAudio.play().catch(error => console.log("Audio play blocked or file missing:", error));
@@ -101,6 +109,7 @@ function resetPage() {
 
 // DANCE PARTY JUMPSCARE TRIGGER
 function triggerDanceParty() {
+    vibratePhone([60, 40, 60]); // A double-buzz pattern for the party button!
     document.body.classList.remove('angry-background');
     document.body.classList.add('dance-party');
     
@@ -109,7 +118,7 @@ function triggerDanceParty() {
 }
 
 // CLOSE PARTY & RETURN TO BEGINNING
-function closeParty() {
+function closeParty() { 
     stopPartyMusic();
     document.body.classList.remove('dance-party');
 
@@ -129,11 +138,13 @@ function stopPartyMusic() {
 }
 
 function openLetter(letterId) {
+    vibratePhone(30);
     document.getElementById('screen-3').classList.add('hidden');
     document.getElementById(letterId).classList.remove('hidden');
 }
 
 function backToLetters() {
+    vibratePhone(30);
     document.getElementById('letter-hb').classList.add('hidden');
     document.getElementById('letter-1').classList.add('hidden');
     document.getElementById('letter-2').classList.add('hidden');
@@ -141,6 +152,7 @@ function backToLetters() {
 }
 
 function goBack() {
+    vibratePhone(30); 
     stopPartyMusic();
     document.body.classList.remove('dance-party', 'angry-background');
     

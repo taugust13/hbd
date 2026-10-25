@@ -88,8 +88,7 @@ p {
     height: 180px;
     object-fit: contain;
     margin-bottom: 20px;
-    border: 2px solid #808080;
-    background: #000;
+    background: linear-gradient(135deg, #b5e2fa 0%, #edc4ed 50%, #b5f2ea 100%);;
 }
 
 .btn-container {
@@ -180,7 +179,7 @@ button:hover {
 
 /* VIBRANT DANCE PARTY BACKGROUND STROBE */
 body.dance-party {
-    animation: danceColors 0.3s infinite alternate !important;
+    animation: danceColors 0.2s infinite alternate !important;
 }
 
 @keyframes danceColors {
@@ -249,6 +248,12 @@ body.angry-background .party-trigger-btn{
 
 .party-trigger-btn {
     display: none !important;
+    background-image: url("https://i.pinimg.com/736x/6e/1f/d9/6e1fd938bb4d8ef18fc13cc5abbdf6f0.jpg"); /* <--- Put your image link or file path here */
+    background-size: cover;                 /* Scales the image to fit the button */
+    background-position: center;
+    height: 65px;
+    width: 100px;
+    
 }
 
 body.show-party-btn .party-trigger-btn {
@@ -272,11 +277,30 @@ body.show-party-btn .party-trigger-btn {
     object-fit: contain;
     z-index: 999;
     pointer-events: none;
+    border: none;
 }
 
 /* Locks Goku right outside the left wall of your main box */
 .left-gif {
-    right: 99%; 
+    right: 25%; 
     max-height: fit-content;
-    top: 40%;
+    top: -61.5%;
+    border: none;
+}
+
+.pactrick-gif {
+    position: absolute;
+    bottom: -5%;
+    left: 42.5%;
+}
+.luigi-gif{
+    position: absolute;
+    bottom: -1%;
+    left: 42.5%;
+}
+
+#letter-1 {
+    max-height: 60vh;       /* Limits the height so it doesn't overflow the page */
+    overflow-y: auto;       /* Adds a vertical scrollbar only when needed */
+    padding-right: 10px; /* Adds a little breathing room for the scrollbar */
 }

@@ -295,8 +295,8 @@ body.show-party-btn .party-trigger-btn {
 }
 .luigi-gif{
     position: absolute;
-    bottom: -1%;
-    left: 42.5%;
+    bottom: -65%;
+    left: 30%;
 }
 
 #letter-1 {
@@ -315,4 +315,96 @@ body.show-party-btn .party-trigger-btn {
 
 body.shake-screen {
     animation: shake 0.3s infinite !important;
+}
+
+/* Floating heart elements */
+.floating-heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 1.5rem;
+    animation: floatUp 4s linear infinite;
+    z-index: 999;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: relative;
+    touch-action: none; /* Prevents the phone from scrolling the whole page while he drags the window */
+}
+
+.retro-confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.retro-confirm-box {
+    background: #c0c0c0;
+    border: 3px solid #dfdfdf;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    width: 85%;
+    max-width: 320px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+    font-family: monospace;
+}
+
+.retro-confirm-box .title-bar {
+    background: navy;
+    color: white;
+    padding: 4px 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.confirm-content {
+    padding: 15px;
+    text-align: center;
+    color: #000;
+}
+
+.confirm-content p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.confirm-buttons button {
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-buttons button:active {
+    border: 2px solid #404040;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
 }

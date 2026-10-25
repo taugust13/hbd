@@ -56,6 +56,8 @@ function acceptGift() {
         spread: 70,
         origin: { y: 0.6 } // Shoots out from around the middle/bottom where the buttons are
     });
+
+    setInterval(spawnFloatingHeart, 400);
     // Little buzz on accept
     stopPartyMusic();
     yesAudio.currentTime = 0;
@@ -96,7 +98,7 @@ function rejectGift() {
 }
 
 function resetPage() {
-    document.body.classList.remove('angry-background', 'dance-party');
+    document.body.classList.remove('angry-background', 'dance-party','shake-screen');
     
     // Stop all sounds
     partyAudio.pause();
@@ -180,4 +182,111 @@ function handleXClick(buttonElement) {
     // Spawns two new ones when X is clicked!
     spawnPopup();
     spawnPopup();
+}
+
+// Function to spawn a floating heart
+function spawnFloatingHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    
+    // You can change these emojis to whatever you want! (💖, 💕, ✨, 🫀, etc.)
+    const emojis = ['💖', '💕', '✨', '🤍', '💌'];
+    heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    // Random horizontal position across the screen
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // Random animation speed so they don't all move together
+    heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+
+    document.body.appendChild(heart);
+
+    // Remove the element after the animation finishes to keep the page clean
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+// Make the retro window draggable
+const windowContainer = document.querySelector('.container');
+const titleBar = document.querySelector('.title-bar');
+
+let isDragging = false;
+let startX, startY;
+let currentX = 0;
+let currentY = 0;
+
+titleBar.addEventListener('mousedown', dragStart);
+titleBar.addEventListener('touchstart', dragStart, { passive: true });
+
+document.addEventListener('mousemove', drag);
+document.addEventListener('touchmove', drag, { passive: true });
+
+document.addEventListener('mouseup', dragEnd);
+document.addEventListener('touchend', dragEnd);
+
+function dragStart(e) {
+    isDragging = true;
+    
+    // Get starting coordinates (handles both mouse and mobile touch)
+    if (e.type === 'touchstart') {
+        startX = e.touches[0].clientX - currentX;
+        startY = e.touches[0].clientY - currentY;
+    } else {
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+    }
+}
+
+function drag(e) {
+    if (!isDragging) return;
+
+    if (e.type === 'touchmove') {
+        currentX = e.touches[0].clientX - startX;
+        currentY = e.touches[0].clientY - startY;
+    } else {
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+    }
+
+    // Move the window smoothly
+    windowContainer.style.transform = `translate(${currentX}px, ${currentY}px)`;
+}
+
+function dragEnd() {
+    isDragging = false;
+}
+// Function that pops up a cheeky warning before letting him go back
+function confirmBack(callback) {
+    // Creates a retro Windows-style alert box dynamically
+    const modal = document.createElement('div');
+    modal.className = 'retro-confirm-modal';
+    modal.innerHTML = `
+        <div class="retro-confirm-box">
+            <div class="title-bar">
+                <span>WARNING.exe</span>
+            </div>
+            <div class="confirm-content">
+                <p>⚠️ Are you sure you want to leave? Your boyfriend status will be temporarily downgraded.</p>
+                <div class="confirm-buttons">
+                    <button id="stay-btn">[ STAY ]</button>
+                    <button id="leave-btn">[ I'LL BE GOOD ]</button>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // If he clicks STAY, close the warning and keep him right where he is
+    document.getElementById('stay-btn').addEventListener('click', () => {
+        if ("vibrate" in navigator) navigator.vibrate(30);
+        modal.remove();
+    });
+
+    // If he clicks I'LL BE GOOD, close the warning and actually go back
+    document.getElementById('leave-btn').addEventListener('click', () => {
+        if ("vibrate" in navigator) navigator.vibrate(30);
+        modal.remove();
+        callback(); // Executes the actual back function
+    });
 }

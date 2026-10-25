@@ -51,6 +51,11 @@ function spawnPopup() {
 }
 
 function acceptGift() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 } // Shoots out from around the middle/bottom where the buttons are
+    });
     // Little buzz on accept
     stopPartyMusic();
     yesAudio.currentTime = 0;
@@ -68,6 +73,7 @@ function rejectGift() {
     noAudio.currentTime = 0;
     noAudio.play().catch(error => console.log("Audio play blocked or file missing:", error));
 
+    document.body.classList.add('shake-screen');
     document.body.classList.remove('dance-party');
     document.body.classList.add('angry-background');
     document.getElementById('screen-1').classList.add('hidden');

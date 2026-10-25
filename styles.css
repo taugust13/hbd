@@ -304,3 +304,15 @@ body.show-party-btn .party-trigger-btn {
     overflow-y: auto;       /* Adds a vertical scrollbar only when needed */
     padding-right: 10px; /* Adds a little breathing room for the scrollbar */
 }
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    20% { transform: translate(-3px, 0px) rotate(-1deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    80% { transform: translate(1px, -1px) rotate(-1deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+body.shake-screen {
+    animation: shake 0.3s infinite !important;
+}
